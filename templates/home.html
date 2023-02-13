@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Microblog</title>
+        <meta>
+        <link rel="stylesheet" href="static/styles.css">
+    </head>
+    <body>
+        
+        <!-- header section -->
+        <header class="navbar">
+            <div class="navbar_logo">
+                <img src="./static/logo.svg" alt="The Microblog Logo" />
+            </div>
+            <ul class="navbar_navigation">
+                <li class="navbar_navigation-item"><a class="navbar_link" href="#">Recent</a></li>
+                <li class="navbar_navigation-item"><a class="navbar_link" href="#">Calender</a></li>
+            </ul>
+        </header>
+
+        <!-- main section -->
+        <main class="main">
+            <section>
+                <h1>Add new entry</h1>
+                <form action="" method="POST" class="form">
+                    <p class="form_input">
+                        <label for="title" class="form_label">Title</label>
+                        <input type="text" name="title" class="form_textarea"></textarea>
+                    </p>
+                    <p class="form_input">
+                        <label for="content" class="form_label">Write here.</label>
+                        <textarea name="content" class="form_textarea"></textarea>
+                    </p>
+                    <button type="submit" class="form_submit">Submit</button>
+                </form>
+            </section>
+            <section>
+                <h2>Recent Posts</h2>
+
+                <!-- articles -->
+                {% for entry in entries %}
+                    <article>
+                        <div>
+                            <h2 class="entry_title">{{ entry[0] }}.</h2>
+                            <time datetime="{{ entry[2] }}" class="entry_date">-{{ entry[2] }}</time>
+                        </div>
+                        <p class="entry_content">{{ entry[1] }}</p>
+                    </article>
+                {% endfor %}
+                </article>
+
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer_content">
+                <section class="left">
+                    <a class="footer_item">Made By D.B.Cooper</a>
+                    <a class="footer_item">Check out my other projects</a>
+                </section>
+                <section class="right">
+                    <div class="footer_column">
+                        <a class="footer_item">Recent</a>
+                        <a class="footer_item">Calender</a>
+                    </div>
+                    <div class="footer_column">
+                        <a class="footer_item">About</a>
+                        <a class="footer_item">How this was made</a>
+                    </div>
+                </section>
+            </div>
+        </footer>
+
+    </body>
+</html>
